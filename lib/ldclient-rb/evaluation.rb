@@ -218,6 +218,7 @@ module LaunchDarkly
         end
         nil
       else # the rule isn't well-formed
+        @config.logger.error("[LDClient] Rule does not define a variation or rollout: #{rule}")
         raise EvaluationError, "Rule does not define a variation or rollout"
       end
     end
